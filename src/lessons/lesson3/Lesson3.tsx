@@ -10,6 +10,13 @@ const Lesson3 = () => {
 
     const searchFilm = () => {
         API.searchFilmsByTitle(searchName)
+            .then( ( { data } ) => {
+            if(data.Response === 'True') {
+                setSerachResult(JSON.stringify(data.Search))
+            } else {
+                setSerachResult(data.Error)
+            }
+        })
     };
 
     const searchByType = (e: React.MouseEvent<HTMLButtonElement>) => {
