@@ -104,14 +104,28 @@ console.log('lesson 3');
 //     })
 
 
-
-
 // new Promise((res,rej) => {
 //     let a = 10;
 //     let b = 15;
 //     res(console.log(a + b)); // a + b = 25
 // }).then((r) => console.log(r));
 
+// let c = 10;
+//
+// async function f() {
+//     try {
+//         let a = 10;
+//         let b = await Promise.reject(5);
+//         console.log('in function',b);
+//         return b;
+//     } catch (e) {
+//         console.log('err',e);
+//     }
+// }
+//
+// console.log('function result',f());
+//
+// let d = c + c;
 
 // just a plug
 export default ()=>{};

@@ -2,23 +2,32 @@ import React, { useState } from 'react';
 import API from './API';
 import './lesson_3';
 
-
-export const Lesson3 = () => {
+const Lesson3 = () => {
     const [searchName, setSearchName] = useState('');
-    const [searchResult, setSearchResult] = useState<Array<any>>([]);
+    const [serachResult, setSerachResult] = useState('');
     const [searchNameByType, setSearchNameByType] = useState('');
-    const [searchResultByType, setSearchResultByType] = useState('');
+    const [serachResultByType, setSerachResultByType] = useState('');
 
-    const searchFilm = () => {
-        API.searchFilmsByTitle(searchName)
-            .then( ( { data } ) => {
-            if(data.Response === 'True') {
-                // setSearchResult(JSON.stringify(data.Search))
-                setSearchResult((data.Search))
-            } else {
-                setSearchResult(data.Error)
-            }
-        })
+    // const searchFilm = () => {
+    //     API.searchFilmsByTitle(searchName)
+    //         .then( ( { data } ) => {
+    //         if(data.Response === 'True') {
+    //             setSerachResult(JSON.stringify(data.Search))
+    //         } else {
+    //             setSerachResult(data.Error)
+    //         }
+    //     })
+    // };
+
+    const searchFilm = async () => {
+        try {
+            let { data } = await API.searchFilmsByTitle(searchName);
+            data.Response === 'True'
+                ? setSerachResult(JSON.stringify(data.Search))
+                : setSerachResult(data.Error);
+        } catch (e) {
+            console.log(e);
+        }
     };
 
     const searchByType = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -34,10 +43,7 @@ export const Lesson3 = () => {
                 <input type="text" value={searchName} onChange={(e) => setSearchName(e.currentTarget.value)}/>
                 <button onClick={searchFilm}>Search</button>
                 <div>
-                    {searchResult.map(r => <>
-                        <div>{r.Title}</div>
-                        <div>{r.Year}</div>
-                    </>)}
+                    {serachResult}
                 </div>
             </div>
 
@@ -47,7 +53,7 @@ export const Lesson3 = () => {
                 <button onClick={searchByType} data-t='movie'>Movie</button>
                 <button onClick={searchByType} data-t='series'>Series</button>
                 <div>
-                    {searchResultByType}
+                    {serachResultByType}
                 </div>
             </div>
         </div>
