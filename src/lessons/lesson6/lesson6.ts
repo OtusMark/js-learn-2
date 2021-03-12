@@ -7,6 +7,32 @@ console.log('Lesson 6');
 // https://www.youtube.com/watch?v=BASquaxab_w
 // https://www.youtube.com/watch?v=uLY9GXGMXaA
 
+// Class is defined with capital letter. This is an agreement.
+
+
+
+interface IPersonClass {
+    name: string;
+    age: number;
+    city: string;
+}
+
+class Person implements IPersonClass {
+    name: string;
+    age: number;
+    city: string;
+
+    constructor(name: string, age: number, city: string) {
+        this.name = name;
+        this.age = age;
+        this.city = city;
+    }
+}
+
+const personObject = new Person('Mark', 30, 'SPB')
+console.log(personObject)
+
+
 // Task 01
 // Создайте структуру с именем student, содержащую поля: имя и фамилия, номер группы, успеваемость (массив из пяти элементов).
 // Создать массив из десяти элементов такого типа, упорядочить записи по возрастанию среднего балла.

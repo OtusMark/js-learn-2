@@ -20,7 +20,51 @@ console.log('Lesson 5');
 // https://learn.javascript.ru/call-apply-decorators
 // https://medium.com/@stasonmars/%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE-%D0%BE-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D1%85-apply-call-%D0%B8-bind-%D0%BD%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D1%8B%D1%85-%D0%BA%D0%B0%D0%B6%D0%B4%D0%BE%D0%BC%D1%83-javascript-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D1%83-ddd5f9b06290
 
+// ....................................................
+
+// console.log(this)
 //
+// function func() {
+//     console.log('function func', this)
+// }
+//
+// func() // the same as window.func().
+//
+// let obj = {name: 'Mark'}
+// obj.func = func
+// obj.func() // The result would be: function func {name: "Mark", func: ƒ}
+// obj.k = function () {
+//     console.log('obj.k', this) // Function declaration always binds to the parent
+//     func() // Binds to global. 'this' is not linked in closure
+//     this.func() // Binds to obj
+//     setTimeout(function() {
+//         console.log('function setTimeout', this)
+//     }, 0) // setTimeout is located in window!!! It will always be window.setTimeout(). 'this' will be bound to window.
+// }
+//
+// obj.k()
+//
+// // The arrow function don't have their own 'this'. The arrow function will take this from the context it was defined in.
+// let arrow = () => console.log('arrow function', this)
+// function FUNC() {
+//     console.log('function FUNC', this)
+//     return () => console.log('arrow function', this)
+// }
+// arrow()
+// FUNC()()
+//
+// obj.func2 = FUNC
+// obj.func2()()
+//
+// obj.func2 = FUNC()
+// obj.func2()
+
+// obj.func2 = FUNC()
+// let someFunc = obj.func2()
+// someFunc()
+
+// .......................................................
+
 // //console.log(this);
 //
 // function f() {
