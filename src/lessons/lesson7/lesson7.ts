@@ -1,3 +1,4 @@
+import './lesson_7';
 console.log('Lesson 7');
 
 // __Proto__
