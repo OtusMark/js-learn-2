@@ -21,11 +21,6 @@ console.log('Lesson 5');
 // https://medium.com/@stasonmars/%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE-%D0%BE-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D1%85-apply-call-%D0%B8-bind-%D0%BD%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D1%8B%D1%85-%D0%BA%D0%B0%D0%B6%D0%B4%D0%BE%D0%BC%D1%83-javascript-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D1%83-ddd5f9b06290
 
 
-
-
-
-
-
 // Task 01
 // Дан объект someObj, реализуйте функцию greeting и присвойте ее ключу объекта с аналогичным именем.
 // Функция должна вернуть строку `My name is ${name}. I am ${age}`, где name и age берутся из свойств объекта
@@ -36,18 +31,18 @@ type someObjType = {
     greeting?: Function;
 }
 
-let someObj:someObjType = {
+let someObj: someObjType = {
     name: 'Eugene',
     age: 32
 }
 
 function greeting() {
-    //@ts-ignore
+    //@ts-ignore -- TS хочет чтобы мы this использовали только в классах ;)
     return `My name is ${this.name}. I am ${this.age}`;
 }
 
 someObj.greeting = greeting;
-//console.log(someObj.greeting());
+console.log(someObj.greeting());
 
 // Task 02
 // реализовать счетчик counter в виде объекта со следующими методами:
@@ -85,16 +80,16 @@ let counterObj: CounterType = {
         this.count = 0;
     },
 };
-// counterObj.increment();
-// counterObj.increment();
-// counterObj.increment();
-// console.log(counterObj.getCurrentCount());
-// counterObj.decrement();
-// console.log(counterObj.getCurrentCount());
-// counterObj.restCurrentCount();
-// console.log(counterObj.getCurrentCount());
-// counterObj.setCurrentCount(100);
-// console.log(counterObj.getCurrentCount());
+counterObj.increment();
+counterObj.increment();
+counterObj.increment();
+console.log(counterObj.getCurrentCount());
+counterObj.decrement();
+console.log(counterObj.getCurrentCount());
+counterObj.restCurrentCount();
+console.log(counterObj.getCurrentCount());
+counterObj.setCurrentCount(100);
+console.log(counterObj.getCurrentCount());
 
 
 // Task 03
